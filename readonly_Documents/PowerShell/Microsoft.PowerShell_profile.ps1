@@ -9,3 +9,6 @@ Invoke-Expression (&starship init powershell)
 
 # Folder Icons
 Import-Module -Name Terminal-Icons
+
+# Aliases
+New-Alias -Name chez -Value chezmoi
