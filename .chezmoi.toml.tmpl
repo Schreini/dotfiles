@@ -1,3 +1,11 @@
+[data]
+{{- $email := promptStringOnce . "email" "Enter your email address:" }}
+{{- $machinetypechoices := list "home" "work" }}
+{{- $machinetype := promptChoiceOnce . "machinetype" "MachineType" $machinetypechoices }}
+username = "Thomas Schreiner"
+email = "{{ $email }}"
+machinetype = "{{ $machinetype }}"
+
 [edit]
 command = "code"
 args = ["--wait"]
