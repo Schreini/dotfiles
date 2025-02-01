@@ -1,0 +1,9 @@
+# ensure this scripts runs whenever packages.yml file is modified
+# packages.yml hash {{ include ".chezmoidata/packages.yml" | sha256sum }}
+
+{{- if eq .chezmoi.os "windows" }}
+{{- range .packages.windowsOnly }}
+write-output '# installing: {{ .win | quote }}'
+winget install {{ .win | quote }}
+{{- end }}
+{{- end }}
