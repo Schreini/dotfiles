@@ -1,7 +1,0 @@
-[credential "https://fpr-debian-01"]
-	provider = generic
-[user]
-	name = Thomas Schreiner
-	email = thomas.schreiner@fleischpruefring.de
-[http]
-	sslBackend = schannel
