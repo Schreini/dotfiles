@@ -7,5 +7,5 @@ packages:
   windowsOnly:
     - name: "gsudo"
       win: "gerardog.gsudo"
-    - name: "demo"
-      win: "lala.mimif"
+    - name: "eza"
+      win: "eza-community.eza"
