@@ -1,0 +1,15 @@
+{{- if eq .chezmoi.os "windows" }}
+# ensure this scripts runs whenever packages.yml file is modified
+# powershell_modules.yml hash {{ include ".chezmoidata/powershell_modules.yml" | sha256sum }}
+write-output 20
+
+write-output "Installing Modules"
+{{- range .powershell_modules }}
+if (Get-Module -Name Terminal-Icons -ListAvailable) {
+    Write-Output "'{{ .name }}': already installed."
+} else {
+    Write-Output "'{{ .name }}': Installing now..."
+    pwsh -NoLogo -NoProfile { Install-Module -Name {{ .name | quote }} -Scope CurrentUser -Force -AcceptLicense }
+}
+{{- end }}
+{{- end }}

@@ -1,1 +1,4 @@
+# add current user powershell modules to path so we have to install modules only once
+$env:PSModulePath += ";$HOME\Documents\PowerShell\Modules"
+
 {{template "windows/Microsoft.PowerShell_profile.ps1"}}
