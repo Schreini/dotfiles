@@ -2,9 +2,11 @@
 # ensure this scripts runs whenever packages.yml file is modified
 # powershell_modules.yml hash {{ include ".chezmoidata/powershell_modules.yml" | sha256sum }}
 
-pwsh -NoLogo -NoProfile {    
+pwsh -NoLogo -NoProfile {
 
-write-output "### Installing Modules"
+write-output "{"
+write-output "{ Installing Powershell Modules"
+write-output "{"
 {{- range .powershell_modules }}
 if (Get-PSResource -Name {{ .name | quote }} -ErrorAction SilentlyContinue) {
     Write-Output "Module '{{ .name }}': Already installed."
@@ -14,5 +16,9 @@ if (Get-PSResource -Name {{ .name | quote }} -ErrorAction SilentlyContinue) {
 }
 {{- end }}
 
-} # end pwsh
+} 
+# end pwsh
 {{ end -}} # end if os == windows
+write-output "}"
+write-output "} Installed Powershell Modules"
+write-output "}"

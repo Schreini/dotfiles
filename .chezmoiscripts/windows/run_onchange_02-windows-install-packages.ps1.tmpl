@@ -3,17 +3,21 @@
 
 {{- if eq .chezmoi.os "windows" }}
 
-pwsh -nologo -noprofile
-{
+pwsh -nologo -noprofile {
+
+write-output "{"
+write-output "{ Installing Packages"
+write-output "{"
 
 {{- range .packages }}
 write-output '# installing: {{ .win | quote }}'
 
-write-output '# name: {{ .name | quote }}'
-write-output '# win: {{ .win | quote }}'
-
-# winget install {{ .win | quote }}
+winget install {{ .win | quote }}
 {{- end }}
 
-}  # end pwsh
+write-output "}"
+write-output "} Installed Packages"
+write-output "}"
+
+} # end pwsh
 {{- end }} # end if os == windows

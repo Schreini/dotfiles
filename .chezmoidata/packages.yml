@@ -4,9 +4,9 @@
 
 ---
 packages:
-  - name: "eza"
-    win: "eza-community.eza"
   - name: "WindowsTerminal"
     win: "Microsoft.WindowsTerminal"
   - name: "starship"
     win: "Starship.Starship"
+  - name: "eza"
+    win: "eza-community.eza"
