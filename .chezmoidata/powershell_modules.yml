@@ -5,3 +5,4 @@
 ---
 powershell_modules:
   - name: "Terminal-Icons"
+  - name: "Fonts"
