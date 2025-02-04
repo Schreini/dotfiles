@@ -2,8 +2,18 @@
 # packages.yml hash {{ include ".chezmoidata/packages.yml" | sha256sum }}
 
 {{- if eq .chezmoi.os "windows" }}
-{{- range .packages.windowsOnly }}
+
+pwsh -nologo -noprofile
+{
+
+{{- range .packages }}
 write-output '# installing: {{ .win | quote }}'
-winget install {{ .win | quote }}
+
+write-output '# name: {{ .name | quote }}'
+write-output '# win: {{ .win | quote }}'
+
+# winget install {{ .win | quote }}
 {{- end }}
-{{- end }}
+
+}  # end pwsh
+{{- end }} # end if os == windows

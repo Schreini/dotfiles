@@ -4,8 +4,9 @@
 
 ---
 packages:
-  windowsOnly:
-    - name: "gsudo"
-      win: "gerardog.gsudo"
-    - name: "eza"
-      win: "eza-community.eza"
+  - name: "eza"
+    win: "eza-community.eza"
+  - name: "WindowsTerminal"
+    win: "Microsoft.WindowsTerminal"
+  - name: "starship"
+    win: "Starship.Starship"
