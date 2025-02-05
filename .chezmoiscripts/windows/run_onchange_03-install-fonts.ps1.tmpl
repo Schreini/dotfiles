@@ -1,0 +1,19 @@
+# PowerShell script to install all fonts from the fonts folder
+
+{{- if eq .chezmoi.os "windows" }}
+write-output "{"
+write-output "{ Installing Fonts"
+write-output "{"
+gsudo { pwsh -NoLogo -NoProfile {
+{{- $fontsFolder := print .chezmoi.sourceDir "/fonts" }}
+# $fontsFolder: {{ $fontsFolder }}
+{{ $fonts := glob (print $fontsFolder "/*.[ot]tf") }}
+{{- range ($fonts) -}}
+Install-Font -Path {{ . }} -Scope AllUsers
+{{ end -}}
+}
+}
+write-output "}"
+write-output "} Installed Fonts"
+write-output "}"
+{{- end -}}
