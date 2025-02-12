@@ -10,7 +10,10 @@ packages:
     win: "Starship.Starship"
   - name: "eza"
     win: "eza-community.eza"
-  - name: neovim
-    win: neovim.neovim
-  - name: git
-    win: git.git
+  - name: "git"
+    win: "git.git"
+  - name: "nano"
+    win: "okibcn.nano"
+  uninstall:
+    - name: "neovim"
+      win: "neovim.neovim"
