@@ -16,10 +16,9 @@ write-output "{ Installing Packages"
 write-output "{"
 
 {{- range .packages }}
-write-output '# installing: {{ .win | quote }}'
-
 $package = $installedPackages | Where-Object {$_.PackageIdentifier -eq {{ .win | quote }} }
 if(-not $package) {
+    write-output '# installing: {{ .win | quote }}'
     gsudo winget install --id {{.win | quote }} --silent --accept-source-agreements --accept-package-agreements --disable-interactivity --exact
 }
 
