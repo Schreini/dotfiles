@@ -3,7 +3,13 @@
 
 {{- if eq .chezmoi.os "windows" }}
 
-pwsh -nologo -noprofile {
+$tmpPackages = Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath ("packages-" + [System.Guid]::NewGuid().ToString() + ".json")
+winget export -o $tmpPackages --include-versions --nowarn
+$installedPackages = (Get-Content $tmpPackages | ConvertFrom-Json).Sources.Packages
+# PackageIdentifier
+# Version
+
+# pwsh -nologo -noprofile {
 
 write-output "{"
 write-output "{ Installing Packages"
@@ -12,12 +18,16 @@ write-output "{"
 {{- range .packages }}
 write-output '# installing: {{ .win | quote }}'
 
-winget install {{ .win | quote }}
+$package = $installedPackages | Where-Object {$_.PackageIdentifier -eq {{ .win | quote }} }
+if(-not $package) {
+    winget install --id {{.win | quote }} --silent --accept-source-agreements --accept-package-agreements --disable-interactivity --exact
+}
+
 {{- end }}
 
 write-output "}"
 write-output "} Installed Packages"
 write-output "}"
 
-} # end pwsh
+# } # end pwsh
 {{- end }} # end if os == windows
