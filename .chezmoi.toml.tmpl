@@ -6,6 +6,11 @@ username = "Thomas Schreiner"
 email = "{{ $email }}"
 machinetype = "{{ $machinetype }}"
 
+{{- if eq .chezmoi.os "windows"}}
+[interpreters.ps1]
+command = "pwsh"
+args = ["-NoLogo"]
+
 [edit]
 command = "code"
 args = ["--wait"]
@@ -15,8 +20,24 @@ command = "code"
 args = ["--wait", "--diff"]
 
 [merge]
-command = "pwsh"
+command = "code"
 args = ["-Command", "cp {{ `{{ .Target }}` }} {{ `{{ .Target }}` }}.base && code --wait --new-window --merge {{ `{{ .Destination }}` }} {{ `{{ .Target  }}` }} {{ `{{ .Target }}` }}.base {{ `{{ .Source }}` }}"]
 
 [cd]
 command = "pwsh"
+{{- end }}
+
+{{- if eq .chezmoi.os "linux"}}
+[edit]
+command = "nano"
+
+[diff]
+command = "vi"
+args = ["--diff"]
+
+[cd]
+command = "bash"
+
+[interpreters.sh]
+command = "bash"
+{{- end }}
