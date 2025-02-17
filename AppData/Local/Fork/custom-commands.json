@@ -1,0 +1,25 @@
+[
+  {
+    "version" : 1
+  },
+  {
+    "action" : {
+      "script" : "git update-index --chmod=+x ${file}\n",
+      "showOutput" : true,
+      "type" : "sh",
+      "waitForExit" : true
+    },
+    "name" : "chmod +x",
+    "target" : "file"
+  },
+  {
+    "action" : {
+      "script" : "echo git rebase --rebase-merges --onto ${sha}^1 ${sha}\ngit rebase --rebase-merges --onto ${sha}^1 ${sha}",
+      "showOutput" : true,
+      "type" : "sh",
+      "waitForExit" : true
+    },
+    "name" : "Delete Merge Commit on THIS Branch",
+    "target" : "revision"
+  }
+]

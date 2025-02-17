@@ -16,11 +16,11 @@ command = "code"
 args = ["--wait"]
 
 [diff]
-command = "code"
-args = ["--wait", "--diff"]
+command = "WinMergeU.exe"
+# args = ["--wait", "--diff"]
 
 [merge]
-command = "C:\\Users\\tschr\\AppData\\Local\\Programs\\WinMerge\\WinMergeU.exe"
+command = "WinMergeU.exe"
 # args = ["-Command", "cp {{ `{{ .Target }}` }} {{ `{{ .Target }}` }}.base && code --wait --new-window --merge {{ `{{ .Destination }}` }} {{ `{{ .Target  }}` }} {{ `{{ .Target }}` }}.base {{ `{{ .Source }}` }}"]
 
 [cd]
