@@ -71,11 +71,11 @@
         },
         "list": 
         [
-{{ if eq .chezmoi.hostname "fpr-nb-04" }}
-  {{ template "AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings-fpr-nb-04.json" }}
-{{ else if eq .chezmoi.hostname "Zak" }}
-  {{ template "AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings-zak.json" }}
-{{ end }}
+{{ if eq .chezmoi.hostname "nb-dev-04" }}
+  {{- template "AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings-nb-dev-04.json" }}
+{{- else if eq .chezmoi.hostname "Zak" }}
+  {{- template "AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings-zak.json" }}
+{{- end }}
         ]
     },
     "schemes": [],
