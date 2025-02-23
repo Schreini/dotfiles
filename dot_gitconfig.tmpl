@@ -1,19 +1,17 @@
 [core]
   autocrlf = true
-
 [user]
   name = {{ .username }}
   email = {{ .email }}
-
+[pull]
+  rebase = true
 {{- if eq .machinetype "home" }}
 [safe]
   directory = %(prefix)///diskstation/home/GoogleDrive/Gaming/Ingress/Operations/2022-05-14-H7-Muc
 {{- end }}
-
 {{- if eq .machinetype "work" }}
 [credential "https://fpr-debian-01"]
   provider = generic
-
 [http]
   sslBackend = schannel
 {{- end }}
