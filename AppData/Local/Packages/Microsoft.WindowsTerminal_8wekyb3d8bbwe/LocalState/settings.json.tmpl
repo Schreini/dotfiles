@@ -71,11 +71,8 @@
         },
         "list": 
         [
-{{ if eq .chezmoi.hostname "nb-dev-04" }}
-  {{- template "AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings-nb-dev-04.json" }}
-{{- else if eq .chezmoi.hostname "Zak" }}
-  {{- template "AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings-zak.json" }}
-{{- end }}
+{{ $templateName := (printf ".chezmoitemplates/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings-%s.json" .chezmoi.hostname) }}
+{{- include $templateName }}
         ]
     },
     "schemes": [],
