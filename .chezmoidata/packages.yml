@@ -1,7 +1,6 @@
 # ╭──────────────────────────────────────────────────────────╮
 # │ PACKAGES                                                 │
 # ╰──────────────────────────────────────────────────────────╯
-
 ---
 packages:
   - name: "WindowsTerminal"
@@ -11,6 +10,9 @@ packages:
   - name: "eza"
     win: "eza-community.eza"
   - name: "git"
-    win: "git.git"
+    win: "Git.Git"
   - name: "nano"
     win: "okibcn.nano"
+  - name: "WinMerge"
+    win: "WinMerge.WinMerge"
+    path: "$env:LOCALAPPDATA\\Programs\\WinMerge"
