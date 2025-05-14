@@ -20,23 +20,28 @@ $package = $installedPackages | Where-Object {$_.PackageIdentifier -eq {{ .win |
 if(-not $package) {
     write-output '# installing: {{ .win | quote }}'
     gsudo winget install --id {{.win | quote }} --silent --accept-source-agreements --accept-package-agreements --disable-interactivity --exact
+
+    {{ if hasKey . "path" }}
+        $path = "{{ .path }}"
+    {{ else }}
+        $path = $null
+    {{ end }}
+
+    if($path) {
+        $currentPath = [Environment]::GetEnvironmentVariable("Path", "User")
+        $pathArray = $currentPath -split ";"
+
+        if ($pathArray -notcontains $path) {
+            $pathArray += $path
+            $newPath = $pathArray -join ";"
+
+            write-output "# added '$Path' to PATH; Open a new PWSH to use it!"
+            [Environment]::SetEnvironmentVariable("Path", $newPath, "User")
+        }
+    }
 }
 else {
     write-output '# already installed: {{ .win | quote }}'
-}
-
-$path = "{{ .path }}"
-if($path) {
-    $currentPath = [Environment]::GetEnvironmentVariable("Path", "User")
-    $pathArray = $currentPath -split ";"
-
-    if ($pathArray -notcontains $path) {
-        $pathArray += $path
-        $newPath = $pathArray -join ";"
-
-        write-output "# added '$Path' to PATH; Open a new PWSH to use it!"
-        [Environment]::SetEnvironmentVariable("Path", $newPath, "User")
-    }
 }
 
 {{- end }}

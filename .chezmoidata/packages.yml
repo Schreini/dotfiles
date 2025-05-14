@@ -16,3 +16,5 @@ packages:
   - name: "WinMerge"
     win: "WinMerge.WinMerge"
     path: "$env:LOCALAPPDATA\\Programs\\WinMerge"
+  - name: "AutoHotkey"
+    win: "AutoHotkey.AutoHotkey"
