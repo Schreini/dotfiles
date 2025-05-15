@@ -3,7 +3,10 @@
 ## Install
 
 ```powershell
-winget install twpayne.chezmoi && chezmoi init schreini
+winget install --silent --accept-source-agreements --accept-package-agreements --disable-interactivity --exact twpayne.chezmoi; `
+winget install --silent --accept-source-agreements --accept-package-agreements --disable-interactivity --exact Microsoft.PowerShell; `
+$env:path=[System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User"); `
+chezmoi init --apply schreini;
 ```
 
 top vorlage:
