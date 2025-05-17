@@ -18,7 +18,8 @@ New-Alias -Name winmerge -value WinMergeU
 New-Alias -Name lgit -Value lazygit
 
 remove-alias ls
-new-alias -Name ls -Value eza
+function Eza-Icons { & (Get-Command eza).Source --icons=always } # New-Alias kann nicht mit Parametern arbeiten...
+new-alias -Name ls -Value Eza-Icons
 
-function Eza-La { & (Get-Command eza).Source -la } # New-Alias kann nicht mit Parametern arbeiten...
+function Eza-La { & (Get-Command eza).Source -la --icons=always } # New-Alias kann nicht mit Parametern arbeiten...
 Set-Alias -Name la -Value Eza-La
