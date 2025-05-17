@@ -19,3 +19,5 @@ packages:
     path: "$env:LOCALAPPDATA\\Programs\\WinMerge"
   - name: "AutoHotkey"
     win: "AutoHotkey.AutoHotkey"
+  - name: "LazyGit"
+    win: "JesseDuffield.lazygit"
