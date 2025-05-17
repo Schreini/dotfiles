@@ -15,6 +15,10 @@ else {Write-Output "No Terminal-Icons"}
 New-Alias -Name chez -Value chezmoi
 New-Alias -Name grep -Value select-string
 New-Alias -Name winmerge -value WinMergeU
+New-Alias -Name lgit -Value lazygit
 
 remove-alias ls
 new-alias -Name ls -Value eza
+
+function Eza-La { & (Get-Command eza).Source -la } # New-Alias kann nicht mit Parametern arbeiten...
+Set-Alias -Name la -Value Eza-La
