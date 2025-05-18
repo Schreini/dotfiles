@@ -21,3 +21,5 @@ packages:
     win: "AutoHotkey.AutoHotkey"
   - name: "LazyGit"
     win: "JesseDuffield.lazygit"
+  - name: "KeepassXC"
+    win: "KeePassXCTeam.KeePassXC"
