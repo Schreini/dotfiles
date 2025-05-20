@@ -23,3 +23,5 @@ packages:
     win: "JesseDuffield.lazygit"
   - name: "KeepassXC"
     win: "KeePassXCTeam.KeePassXC"
+  - name: "Signal"
+    win: "OpenWhisperSystems.Signal"
