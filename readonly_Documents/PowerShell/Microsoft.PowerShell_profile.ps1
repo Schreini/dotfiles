@@ -21,5 +21,8 @@ remove-alias ls
 function Eza-Icons { & (Get-Command eza).Source --icons=always } # New-Alias kann nicht mit Parametern arbeiten...
 new-alias -Name ls -Value Eza-Icons
 
-function Eza-La { & (Get-Command eza).Source -la --icons=always } # New-Alias kann nicht mit Parametern arbeiten...
+function Eza-La { & (Get-Command eza).Source -la --icons=always }
 Set-Alias -Name la -Value Eza-La
+
+function Git-Status-Short { & (Get-Command git).Source status --short }
+Set-Alias -Name gs -Value Git-Status-Short

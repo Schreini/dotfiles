@@ -1,5 +1,7 @@
 [core]
   autocrlf = true
+  whitespace = error
+  preloadindex = true
 [user]
   name = {{ .username }}
   email = {{ .email }}
@@ -7,6 +9,14 @@
   rebase = true
 [color]
   ui = true
+[status]
+  branch = true
+  showStash = true
+  showUntrackedFiles = all
+
+[diff]
+  renames = copies
+
 [alias]
   lg = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 
