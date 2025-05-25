@@ -5,6 +5,8 @@ write-output "#"
 write-output "# uninstall onedrive"
 gsudo winget uninstall --silent --accept-source-agreements --disable-interactivity --exact Microsoft.OneDrive
 gsudo winget uninstall --silent --accept-source-agreements --disable-interactivity onedrive
+gsudo winget uninstall --silent --accept-source-agreements --disable-interactivity --name "Game Bar"
+gsudo winget uninstall --silent --accept-source-agreements --disable-interactivity --exact --name "Xbox"
 
 write-output "# install english language"
 gsudo install-language en-US
