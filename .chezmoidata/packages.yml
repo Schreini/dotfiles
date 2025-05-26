@@ -25,3 +25,5 @@ packages:
     win: "KeePassXCTeam.KeePassXC"
   - name: "Signal"
     win: "OpenWhisperSystems.Signal"
+  - name: "GitUi"
+    win: "StephanDilly.gitui"
