@@ -12,6 +12,9 @@ write-output "# install english language"
 gsudo install-language en-US
 
 write-output "# enable english keyboard"
-$langList = Get-WinUserLanguageList
-$langList.Add("en-US")
-Set-WinUserLanguageList -LanguageList $langList
+$langList = New-WinUserLanguageList en-US
+$langList.Add("de-DE")
+Set-WinUserLanguageList -LanguageList $langList -Force
+
+# previos operation automagically sets Display language to english, so force german as display language
+Set-WinUILanguageOverride -Language de-DE
