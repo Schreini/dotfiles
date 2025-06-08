@@ -29,3 +29,7 @@ Set-ItemProperty -Path $regPath -Name "SubscribedContent-310093Enabled" -Value 0
 Set-ItemProperty -Path $regPath -Name "SubscribedContent-338393Enabled" -Value 0 -Force
 Set-ItemProperty -Path $regPath -Name "SubscribedContent-353694Enabled" -Value 0 -Force
 Set-ItemProperty -Path $regPath -Name "SubscribedContent-353696Enabled" -Value 0 -Force
+
+# Werbung auf dem Startbildschirm
+# https://www.deskmodder.de/wiki/index.php?title=Keine_Infos_auf_dem_Sperrbildschirm_anzeigen_Windows_11
+Set-ItemProperty -Path $regPath -Name "SubscribedContent-338387Enabled" -Value 0 -Force
