@@ -27,3 +27,5 @@ packages:
     win: "OpenWhisperSystems.Signal"
   - name: "GitUi"
     win: "StephanDilly.gitui"
+  - name: "DiffTastic"
+    win: "Wilfred.difftastic"
