@@ -33,3 +33,6 @@ Set-ItemProperty -Path $regPath -Name "SubscribedContent-353696Enabled" -Value 0
 # Werbung auf dem Startbildschirm
 # https://www.deskmodder.de/wiki/index.php?title=Keine_Infos_auf_dem_Sperrbildschirm_anzeigen_Windows_11
 Set-ItemProperty -Path $regPath -Name "SubscribedContent-338387Enabled" -Value 0 -Force
+
+write-output "# install WSL"
+gsudo wsl --install
